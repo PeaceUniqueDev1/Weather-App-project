@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2878c8">
+  <title>My Weather</title>
+  <link rel="stylesheet" href="weather.css">
+  <script src="weather.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">🌦️</span>
+        <div>
+          <h1>My Weather</h1>
+          <p>Weather made simple.</p>
+        </div>
+      </div>
+      <button id="unit-button" class="unit-button" type="button"
+        aria-label="Switch temperature units">°C / °F</button>
+    </header>
+
+    <section class="search-card" aria-label="Find your weather">
+      <label for="city-input">Which city do you want to check?</label>
+      <form id="search-form" class="search-row">
+        <input id="city-input" type="search"
+          placeholder="Enter a city, e.g. Lagos"
+          autocomplete="off" required>
+        <button type="submit" id="search-button">Search</button>
+      </form>
+      <button id="location-button" class="location-button" type="button">
+        📍 Use my location
+      </button>
+    </section>
+
+    <div id="message" class="message" role="status" aria-live="polite">
+      Enter a city to see its weather.
+    </div>
+
+    <section id="weather" hidden>
+      <div class="current-card">
+        <div class="place-line">
+          <div>
+            <p class="eyebrow">WEATHER RIGHT NOW</p>
+            <h2 id="city-name">Your city</h2>
+            <p id="local-time" class="muted"></p>
+          </div>
+          <span id="weather-icon" class="weather-icon"
+            role="img" aria-label="Weather">🌤️</span>
+        </div>
+
+        <p id="condition" class="condition">Loading weather...</p>
+        <p class="temperature">
+          <span id="temperature">--</span><span id="temperature-unit">°C</span>
+        </p>
+        <p id="feels-like" class="muted">Feels like --</p>
+        <p id="weather-advice" class="advice"></p>
+      </div>
+
+      <h2 class="section-title">Today's weather details</h2>
+      <div class="details-grid">
+        <article class="detail-card">
+          <span aria-hidden="true">💧</span>
+          <p>Humidity</p>
+          <strong id="humidity">--%</strong>
+        </article>
+        <article class="detail-card">
+          <span aria-hidden="true">💨</span>
+          <p>Wind speed</p>
+          <strong id="wind">--</strong>
+        </article>
+        <article class="detail-card">
+          <span aria-hidden="true">🌧️</span>
+          <p>Rain right now</p>
+          <strong id="rain">--</strong>
+        </article>
+        <article class="detail-card">
+          <span aria-hidden="true">☔</span>
+          <p>Rain chance today</p>
+          <strong id="rain-chance">--</strong>
+        </article>
+      </div>
+
+      <h2 class="section-title">The next five days</h2>
+      <div id="forecast" class="forecast-grid"></div>
+    </section>
+
+    <footer>
+      <p>Take care of yourself, whatever the weather. ❤️</p>
+      <p class="credit">
+        Weather data by <a href="https://open-meteo.com/"
+          target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
